@@ -1,0 +1,48 @@
+npm understanding 
+installing and uninstailing anything from basic s and adv
+
+=> install-> nmp i package_name
+to install a particular pakage version -> npm i package_name@version
+=> uninstall -> npm un package_name
+=> update -> npm update package_name
+=> view installed packages -> npm list
+=> view globally installed packages -> npm list -g
+=> view outdated packages -> npm outdated
+=> install specific version -> npm i package_name@version
+=> install package globally -> npm i -g package_name
+..................................................
+understanding node_moduels-->
+
+node_modules folder contains all the packages that we install using npm
+it also contains the dependencies of those packages
+..................................................
+package.json file
+it contains the metadata of the project
+it also contains the list of dependencies and dev dependencies
+to create package.json file -> npm init
+to create package.json file with default values -> npm init -y
+..................................................
+
+
+dpendencies-->
+this are packages and packaages dependency
+.......................................
+dev dependencies=> those dependency is only used in development time ..but after deployment ..its no used
+....................................
+scripstss  patha and custom script=>
+npm start
+npm run dev
+npm run start
+................................
+
+...color full data chalk modules ...
+Express js...jounrney...begin.........................
+....................................
+1 intro to Express.js
+2 npm packages 
+3 framework
+4 setting up basic express application
+5 Rouyting 
+6 Middleware
+7 Request and response handleing 
+8 Error handleing
