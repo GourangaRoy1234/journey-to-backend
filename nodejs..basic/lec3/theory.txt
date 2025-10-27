@@ -411,3 +411,30 @@ Form handling → express.urlencoded() use karke easy
 Agar chaho toh mai is poore Express.js flow ka ek simple diagram bhi bana du, jisme:
 Client → Request → Middleware → Router → Controller → Response → Session/Flash sab arrows ke saath visually dikhe.
 
+//cookie:->
+Cookie ek chhoti si text file/ string hoti hai jo browser (frontend) mein store hoti hai. Server ya JavaScript dono cookie set kar sakte hain. Jab bhi browser ussi domain pe request bhejta hai, toh woh cookie automatically server ko send ho jaati hai (agar domain/path match kare).
+
+Socho: cookie ek chhota identity tag hai jo browser pe chipka rehta hai, taaki server bole — “ah yes, yeh wahi banda hai jo pehle aaya tha.”
+
+#Session vs Persistent cookie
+
+Session cookie: browser close karte hi remove ho jaati hai. (e.g., session id for logged in session)
+
+Persistent cookie: expiry date set hoti hai — browser band karne ke baad bhi rehti hai (e.g., “remember me” token).
+
+HttpOnly — JS (document.cookie) se accessible nahi. Prevents XSS stealing.
+
+Secure — sirf HTTPS pe bheji jayegi.
+
+SameSite — Strict / Lax / None. CSRF attacks ko kam karta hai. Lax usually safe for login flows; Strict zyada strict; None ke saath Secure required hota hai.
+
+Frontend storage — cookie vs localStorage
+
+Cookies — automatically har relevant HTTP request ke saath chali jaati hain (server-side useful). Chhoti size limit hoti hai (usually ~4KB per cookie).
+
+localStorage/sessionStorage — JS-only storage, requests ke saath automatically nahi bheji jaati. Sensitive tokens yahan store karna risky ho sakta hai (XSS risk).
+Domain, Path, Expires/Max-Age — decide karte hain kaunsi requests mein cookie jayegi aur kab expire hogi.
+
+
+//topic session cookie->
+hum koi vhi data frontend par rakh sakte hai and jab bhi app kuch bhi request backend par karoge wo frontend par saved data automatically backend par chala jayega 
