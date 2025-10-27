@@ -36,6 +36,115 @@ npm run start
 ................................
 
 ...color full data chalk modules ...
+.............................................................................
+1 Route kya hai?
+
+Route = server ke andar ek specific path aur uske liye defined function.
+
+Matlab route decide karta hai:
+
+“Agar client ne /users ya /posts request bheji, toh kaunsa code execute hoga.”
+
+Route request ko handle karta hai, lekin khud request nahi hai.
+..
+2) Server (Express App)
+
+Definition: Server ek main program hai jo client requests sunta hai aur response bhejta hai.
+
+Example:
+
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+
+
+Kaam:
+
+Requests receive karta hai
+
+Decide karta hai kaunsa route handle karega
+
+Response return karta hai client ko
+
+3) Router (Mini App / Path Handler)
+
+Definition: Router ek mini express app hai jo specific section ke routes handle karta hai.
+
+Purpose:
+
+Code modular aur clean banata hai
+
+Large projects me har feature ka alag router hota hai
+
+Example:
+
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => res.send('All users list'));
+router.post('/', (req, res) => res.send('New user created'));
+
+module.exports = router;
+
+
+Server me use karna:
+
+const userRoutes = require('./userRoutes');
+app.use('/users', userRoutes);
+
+
+Flow: /users URL → userRouter handle → specific route → controller → database
+
+4) API (Application Programming Interface)
+
+Definition: API ek defined pathway hai jisse client aur server communicate karte hain.
+
+Important:
+
+Router API ke routes define karta hai
+
+Client directly API call karta hai, router decide karta hai kaunsa controller handle karega
+
+Example:
+
+GET /api/user/1234 → API call
+
+Router aur controller ke through database se data fetch → client ko response
+
+5) Database
+
+Definition: Backend ka data store
+
+Kaam:
+
+User info, posts, messages, likes, comments store karta hai
+
+Router/controller se data fetch/save/update/delete hota hai
+
+6) Full Request Flow
+
+Client request bhejta hai (browser/app)
+
+API endpoint receive karta hai request
+
+Server decide karta hai kaunsa router handle kare
+
+Router call karta hai controller function
+
+Controller database se data fetch/save karta hai
+
+Data router → server → client tak wapas aata hai
+
+Ek line summary:
+
+Client → API → Server → Router → Controller → Database → Router → Server → Client
+...........................................................................
 Express js...jounrney...begin.........................
 ....................................
 1 intro to Express.js
@@ -46,3 +155,4 @@ Express js...jounrney...begin.........................
 6 Middleware
 7 Request and response handleing 
 8 Error handleing
+...kuch sawal jo impt hai ..
