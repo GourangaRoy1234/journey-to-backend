@@ -45,8 +45,8 @@ app.delete("/teas/:id",(req,res)=>{
   if(teaIndex===-1){
     return res.status(404).send({message:"Tea not found"});
   }
-  teaData.splice(teaIndex,1);
-  res.status(204).send("deleted successfully");
+  teaData.splice(teaIndex,1)
+ return res.status(204).send("deleted successfully");
 }); 
 
 
